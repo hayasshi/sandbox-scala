@@ -10,6 +10,6 @@ object MemcachedParser {
 
   def key[_: P]: P[String] = P(CharPred(c => !c.isControl && !c.isSpaceChar)).rep.!.filter(!_.contains("\r\n"))
 
-  def GetParser[_: P]: P[Seq[String]] = P(Start ~ ("GET" ~ "S".?)) ~ (tokenSeparator ~ key).rep ~ lineSeparator ~ End
+  def GetParser[_: P]: P[Seq[String]] = P(Start ~ ("get" ~ "s".?)) ~ (tokenSeparator ~ key).rep ~ lineSeparator ~ End
 
 }
