@@ -17,7 +17,9 @@ lazy val algorithm = (project in file("algorithm"))
     scalaVersion     := "2.12.8",
     version          := "0.1.0-SNAPSHOT",
     organization     := "com.github.hayasshi",
-    libraryDependencies += scalaTest % Test
+    libraryDependencies ++= Seq(
+      scalaTest % Test
+    )
   )
 
 lazy val parser = (project in file("parser"))
@@ -26,5 +28,8 @@ lazy val parser = (project in file("parser"))
     scalaVersion     := "2.12.8",
     version          := "0.1.0-SNAPSHOT",
     organization     := "com.github.hayasshi",
-    libraryDependencies += scalaTest % Test
+    libraryDependencies ++= Seq(
+      scalaTest % Test,
+      fastparse,
+    )
   )
