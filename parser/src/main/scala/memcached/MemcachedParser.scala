@@ -8,7 +8,7 @@ object MemcachedParser {
 
   def lineSeparator[_: P]: P[Unit] = P("\r\n")
 
-  def key[_: P]: P[String] = CharPred(c => !c.isControl && !c.isSpaceChar).rep.!.filter(!_.contains("\r\n"))
+  def key[_: P]: P[String] = CharPred(c => !c.isControl && !c.isSpaceChar).rep.!
 
   def GetParser[_: P]: P[Seq[String]] = Start ~ ("get" ~ "s".?) ~ (tokenSeparator ~ key).rep ~ lineSeparator ~ End
 
