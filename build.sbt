@@ -12,7 +12,8 @@ lazy val root = (project in file("."))
   .aggregate(
     algorithm,
     parser,
-    akka26
+    akka26,
+    quic
   )
 
 lazy val algorithm = (project in file("algorithm"))
@@ -50,5 +51,16 @@ lazy val akka26 = (project in file("akka-2.6"))
       "com.typesafe.akka" %% "akka-stream-typed"        % "2.6.0",
       "com.typesafe.akka" %% "akka-actor-testkit-typed" % "2.6.0" % Test,
       "com.typesafe.akka" %% "akka-stream-testkit"      % "2.6.0" % Test
+    )
+  )
+
+lazy val quic = (project in file("quic"))
+  .settings(
+    name := "quic",
+    organization := Organization,
+    scalaVersion := ScalaVersion,
+    version := "0.1.0-SNAPSHOT",
+    libraryDependencies ++= Seq(
+      scalaTest % Test,
     )
   )
