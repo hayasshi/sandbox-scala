@@ -5,6 +5,7 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
+project/project/
 .history
 .cache
 .lib/
@@ -15,7 +16,10 @@ project/plugins/project/
 # sigar
 native/
 
+# vscode
+.vscode
+
 # scalameta metals
 .bloop/
 .metals/
-
+metals.sbt
