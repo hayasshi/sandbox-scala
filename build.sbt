@@ -22,8 +22,8 @@ lazy val algorithm = (project in file("algorithm"))
     scalaVersion := ScalaVersion,
     version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-        scalaTest % Test
-      )
+      scalaTest % Test
+    )
   )
 
 lazy val parser = (project in file("parser"))
@@ -33,9 +33,9 @@ lazy val parser = (project in file("parser"))
     scalaVersion := ScalaVersion,
     version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-        scalaTest % Test,
-        fastparse
-      )
+      scalaTest % Test,
+      fastparse
+    )
   )
 
 lazy val akka26 = (project in file("akka-2.6"))
@@ -45,10 +45,10 @@ lazy val akka26 = (project in file("akka-2.6"))
     scalaVersion := ScalaVersion,
     version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-        scalaTest           % Test,
-        "com.typesafe.akka" %% "akka-actor-typed" % "2.6.0",
-        "com.typesafe.akka" %% "akka-stream-typed" % "2.6.0",
-        "com.typesafe.akka" %% "akka-actor-testkit-typed" % "2.6.0" % Test,
-        "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.0" % Test
-      )
+      scalaTest            % Test,
+      "com.typesafe.akka" %% "akka-actor-typed"         % "2.6.0",
+      "com.typesafe.akka" %% "akka-stream-typed"        % "2.6.0",
+      "com.typesafe.akka" %% "akka-actor-testkit-typed" % "2.6.0" % Test,
+      "com.typesafe.akka" %% "akka-stream-testkit"      % "2.6.0" % Test
+    )
   )
