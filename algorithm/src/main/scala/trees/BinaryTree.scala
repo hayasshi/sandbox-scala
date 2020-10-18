@@ -3,7 +3,11 @@ package trees
 import scala.annotation.tailrec
 import scala.collection.mutable
 
-final case class BinaryTree[A](data: A, left: Option[BinaryTree[A]], right: Option[BinaryTree[A]])
+final case class BinaryTree[A](
+    data: A,
+    left: Option[BinaryTree[A]],
+    right: Option[BinaryTree[A]]
+)
 
 object BinaryTree {
 
@@ -12,8 +16,8 @@ object BinaryTree {
   final case class NotFound(order: Int)           extends SearchResult[Nothing]
 
   /**
-    * 幅優先探索
-    */
+   * 幅優先探索
+   */
   def breadthFirstSearch[A](root: BinaryTree[A])(target: A): SearchResult[A] = {
     // for performance
     val queue = mutable.Queue.empty[BinaryTree[A]]
@@ -38,18 +42,18 @@ object BinaryTree {
   }
 
   /**
-    * 深さ優先探索
-    */
+   * 深さ優先探索
+   */
   def depthFirstSearch[A](root: BinaryTree[A])(target: A): SearchResult[A] = {
 
     def loop(t: BinaryTree[A], order: Int): SearchResult[A] = {
       val current = order + 1
       t match {
-        case BinaryTree(data, None, None) =>
+        case BinaryTree(data, None, None)         =>
           if (data == target) Found(data, current) else NotFound(current)
-        case BinaryTree(data, Some(lv), None) =>
+        case BinaryTree(data, Some(lv), None)     =>
           if (data == target) Found(data, current) else loop(lv, current)
-        case BinaryTree(data, None, Some(rv)) =>
+        case BinaryTree(data, None, Some(rv))     =>
           if (data == target) Found(data, current) else loop(rv, current)
         case BinaryTree(data, Some(lv), Some(rv)) =>
           if (data == target) Found(data, current)

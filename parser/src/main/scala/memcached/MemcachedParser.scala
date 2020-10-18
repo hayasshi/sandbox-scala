@@ -22,7 +22,8 @@ object MemcachedParser {
 
   def dataBlock[_: P]: P[String] = CharPred(c => c != '\r' && c != '\n').rep.!
 
-  def GetParser[_: P]: P[Seq[String]] = Start ~ ("get" ~ "s".?) ~ (tokenSeparator ~ key).rep ~ lineSeparator ~ End
+  def GetParser[_: P]: P[Seq[String]] =
+    Start ~ ("get" ~ "s".?) ~ (tokenSeparator ~ key).rep ~ lineSeparator ~ End
 
   def SetParser[_: P]: P[(String, Long, Long, Long, Boolean, String)] =
     Start ~ "set" ~ tokenSeparator ~ key ~ tokenSeparator ~ flags ~ tokenSeparator ~ exptime ~ tokenSeparator ~ bytes ~ tokenSeparator.? ~ noreply ~ lineSeparator ~ dataBlock ~ lineSeparator ~ End

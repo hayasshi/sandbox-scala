@@ -8,12 +8,12 @@ import trees.BinaryTree.NotFound
 class BinaryTreeTest extends FunSuite with DiagrammedAssertions {
 
   /**
-    *       4
-    *      / \
-    *     2   3
-    *    /     \
-    *   5       1
-    */
+   *       4
+   *      / \
+   *     2   3
+   *    /     \
+   *   5       1
+   */
   val _5   = BinaryTree(5, None, None)
   val _1   = BinaryTree(1, None, None)
   val _2   = BinaryTree(2, Some(_5), None)
