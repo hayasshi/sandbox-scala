@@ -8,17 +8,17 @@ import trees.BinaryTree.NotFound
 class BinaryTreeTest extends FunSuite with DiagrammedAssertions {
 
   /**
-   *       4
-   *      / \
-   *     2   3
-   *    /     \
-   *   5       1
-   */
-  val _5 = BinaryTree(5, None, None)
-  val _1 = BinaryTree(1, None, None)
-  val _2 = BinaryTree(2, Some(_5), None)
-  val _3 = BinaryTree(3, None, Some(_1))
-  val _4 = BinaryTree(4, Some(_2), Some(_3))
+    *       4
+    *      / \
+    *     2   3
+    *    /     \
+    *   5       1
+    */
+  val _5   = BinaryTree(5, None, None)
+  val _1   = BinaryTree(1, None, None)
+  val _2   = BinaryTree(2, Some(_5), None)
+  val _3   = BinaryTree(3, None, Some(_1))
+  val _4   = BinaryTree(4, Some(_2), Some(_3))
   val root = _4
 
   test("bfs - 検索対象が含まれていれば値と検索計算量を返す") {

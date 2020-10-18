@@ -9,7 +9,7 @@ object BinaryTree {
 
   sealed abstract class SearchResult[+A]
   final case class Found[A](value: A, order: Int) extends SearchResult[A]
-  final case class NotFound(order: Int) extends SearchResult[Nothing]
+  final case class NotFound(order: Int)           extends SearchResult[Nothing]
 
   /**
     * 幅優先探索
@@ -23,10 +23,10 @@ object BinaryTree {
       if (queue.isEmpty) NotFound(order)
       else {
         val current = order + 1
-        val elem = queue.dequeue()
+        val elem    = queue.dequeue()
         if (elem.data == target) Found(elem.data, current)
         else {
-          elem.left.foreach(data  => queue.enqueue(data))
+          elem.left.foreach(data => queue.enqueue(data))
           elem.right.foreach(data => queue.enqueue(data))
           loop(current)
         }
@@ -56,7 +56,7 @@ object BinaryTree {
           else {
             loop(lv, current) match {
               case NotFound(next) => loop(rv, next)
-              case v    => v
+              case v              => v
             }
           }
       }
