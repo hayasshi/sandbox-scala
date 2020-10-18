@@ -1,50 +1,54 @@
 import Dependencies._
 
-ThisBuild / scalaVersion     := "2.12.8"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "com.github.hayasshi"
+val ScalaVersion = "2.13.3"
+val Organization = "com.github.hayasshi"
 
 lazy val root = (project in file("."))
-  .settings(name := "sandbox-scala")
+  .settings(
+    name := "sandbox-scala",
+    organization := Organization,
+    scalaVersion := ScalaVersion
+  )
   .aggregate(
     algorithm,
-    parser
+    parser,
+    akka26
   )
 
 lazy val algorithm = (project in file("algorithm"))
   .settings(
     name := "algorithm",
-    scalaVersion     := "2.12.8",
-    version          := "0.1.0-SNAPSHOT",
-    organization     := "com.github.hayasshi",
+    organization := Organization,
+    scalaVersion := ScalaVersion,
+    version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-      scalaTest % Test
-    )
+        scalaTest % Test
+      )
   )
 
 lazy val parser = (project in file("parser"))
   .settings(
     name := "parser",
-    scalaVersion     := "2.12.8",
-    version          := "0.1.0-SNAPSHOT",
-    organization     := "com.github.hayasshi",
+    organization := Organization,
+    scalaVersion := ScalaVersion,
+    version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-      scalaTest % Test,
-      fastparse,
-    )
+        scalaTest % Test,
+        fastparse
+      )
   )
 
 lazy val akka26 = (project in file("akka-2.6"))
   .settings(
     name := "akka-2.6",
-    scalaVersion     := "2.12.8",
-    version          := "0.1.0-SNAPSHOT",
-    organization     := "com.github.hayasshi",
+    organization := Organization,
+    scalaVersion := ScalaVersion,
+    version := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
-      scalaTest % Test,
-      "com.typesafe.akka" %% "akka-actor-typed" % "2.6.0",
-      "com.typesafe.akka" %% "akka-stream-typed" % "2.6.0",
-      "com.typesafe.akka" %% "akka-actor-testkit-typed" % "2.6.0" % Test,
-      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.0" % Test,
-    )
+        scalaTest           % Test,
+        "com.typesafe.akka" %% "akka-actor-typed" % "2.6.0",
+        "com.typesafe.akka" %% "akka-stream-typed" % "2.6.0",
+        "com.typesafe.akka" %% "akka-actor-testkit-typed" % "2.6.0" % Test,
+        "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.0" % Test
+      )
   )
