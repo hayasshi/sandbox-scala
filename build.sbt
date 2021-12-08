@@ -12,7 +12,8 @@ lazy val root = (project in file("."))
   .aggregate(
     algorithm,
     parser,
-    akka26
+    akka26,
+    actor
   )
 
 lazy val algorithm = (project in file("algorithm"))
