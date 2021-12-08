@@ -1,10 +1,10 @@
 package memcached
 
-import org.scalatest.FunSuite
-import org.scalatest.DiagrammedAssertions
 import fastparse._, NoWhitespace._
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.diagrams.Diagrams
 
-class MemcachedParserTest extends FunSuite with DiagrammedAssertions {
+class MemcachedParserTest extends AnyFunSuite with Diagrams {
 
   test("get command parser") {
     val keys                      = Seq("key1", "鍵2", "key3")

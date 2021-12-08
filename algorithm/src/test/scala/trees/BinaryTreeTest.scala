@@ -1,11 +1,11 @@
 package trees
 
-import org.scalatest.FunSuite
-import org.scalatest.DiagrammedAssertions
 import trees.BinaryTree.Found
 import trees.BinaryTree.NotFound
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.diagrams.Diagrams
 
-class BinaryTreeTest extends FunSuite with DiagrammedAssertions {
+class BinaryTreeTest extends AnyFunSuite with Diagrams {
 
   /**
    *       4
