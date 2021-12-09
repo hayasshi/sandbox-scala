@@ -1,16 +1,18 @@
 package hayasshi.actor
 
-import akka.actor.Actor
-import akka.testkit.TestKit
-import akka.actor.ActorSystem
+import akka.actor.{ ActorRef, ActorSystem }
+import akka.testkit.{ ImplicitSender, TestKit }
 import org.scalatest.diagrams.Diagrams
 import org.scalatest.funsuite.AnyFunSuiteLike
-import akka.testkit.ImplicitSender
 
-class CacheActorTest extends TestKit(ActorSystem()) with ImplicitSender with AnyFunSuiteLike with Diagrams {
+class CacheActorTest
+    extends TestKit(ActorSystem())
+    with ImplicitSender
+    with AnyFunSuiteLike
+    with Diagrams {
   import hayasshi.actor.CacheActor._
 
-  val cacheActor = system.actorOf(CacheActor.props)
+  val cacheActor: ActorRef = system.actorOf(CacheActor.props)
 
   test("CacheActor に Set して Get すると Found できる") {
     cacheActor ! Set("one", 1)
