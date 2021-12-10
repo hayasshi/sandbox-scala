@@ -90,6 +90,6 @@ class SqsReceiverActor(settings: SqsReceiverSettings) extends Actor {
       inProcessMessages -= m.receiptHandle()
       val request =
         DeleteMessageRequest.builder().queueUrl(settings.queueUrl).receiptHandle(m.receiptHandle()).build()
-      settings.sqsClient.deleteMessage(request)
+      settings.sqsClient.deleteMessage(request).thenApply(_ => "Done").pipeTo(sender())
   }
 }

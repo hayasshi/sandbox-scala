@@ -62,8 +62,9 @@ lazy val actor = (project in file("actor"))
     version      := "0.1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
       scalaTest                % Test,
-      "com.typesafe.akka"     %% "akka-actor"   % "2.6.17",
-      "com.typesafe.akka"     %% "akka-testkit" % "2.6.17" % Test,
-      "software.amazon.awssdk" % "sqs"          % "2.17.81"
+      "com.typesafe.akka"     %% "akka-actor"       % "2.6.17",
+      "com.typesafe.akka"     %% "akka-testkit"     % "2.6.17" % Test,
+      "software.amazon.awssdk" % "sqs"              % "2.17.91",
+      "org.elasticmq"         %% "elasticmq-server" % "1.3.3"  % Test
     )
   )

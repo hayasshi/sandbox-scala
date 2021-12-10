@@ -6,7 +6,7 @@ import org.scalatest.diagrams.Diagrams
 import org.scalatest.funsuite.AnyFunSuiteLike
 
 class CacheActorTest
-    extends TestKit(ActorSystem())
+    extends TestKit(ActorSystem(classOf[CacheActorTest].getSimpleName))
     with ImplicitSender
     with AnyFunSuiteLike
     with Diagrams {
